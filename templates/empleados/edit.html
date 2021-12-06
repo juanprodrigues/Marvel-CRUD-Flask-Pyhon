@@ -1,0 +1,59 @@
+<head>
+    <title>Editar Personaje</title>
+</head>
+<!-- contine links de bootstrap -->
+{% include 'empleados/cabezera.html' %}
+<!-- ponemos la nabvar predeterminada -->
+{% include 'empleados/header.html' %}
+<!-- maperamos el elementos que traemos de la bd -->
+
+<style>
+    .container {
+        /* background: yellow; */
+        /* height: 150px; */
+        /*IMPORTANTE*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* form {
+        background: red; */
+    /* width: 120px;
+}
+*/
+</style>
+<br><br>
+<div class="container">
+    {% for empleado in empleados %}
+    <form method="post" action="/update" enctype="multipart/form-data">
+        ID:
+        <input type="text" value="{{ empleado[0] }}" name="txtID" id="txtID">
+
+        <div class="form-group"><label> Nombre: </label>
+            <input type="text" value="{{ empleado[1] }}" name="txtNombre" id="txt
+Nombre">
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label> Apellido: </label>
+            <input type="text" value="{{ empleado[2] }}" name="txtCorreo" id="txt
+Correo">
+
+        </div>
+        <div class="form-group"><label> Foto: </label>
+            <br>
+            <img class="imgthumbnail" width="100" src="{{url_for('uploads', nombreFoto=empleado[3])}}" alt="">
+            <br>
+            <br>
+            <input type="file" name="txtFoto" id="txtFoto">
+            <br>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Agregar" class="btn btn-success">
+                <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+
+            </div>
+    </form>
+    {% endfor %}
+    </div>

@@ -1,0 +1,46 @@
+<head>
+    <title>Registrar Personaje</title>
+</head>
+
+<!-- contine links de bootstrap -->
+{% include 'empleados/cabezera.html' %}
+<!-- ponemos la nabvar predeterminada -->
+{% include 'empleados/header.html' %}
+<style>
+    .container {
+        /* background: yellow; */
+        /* height: 150px; */
+        /*IMPORTANTE*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* form {
+        background: red;
+        width: 120px;
+    } */
+</style>
+<br><br><br>
+<div class="container">
+    <form method="post" action="/store" enctype="multipart/form-data">
+        <div class="form-group"><label> Nombre: </label>
+            <input type="text" name="txtNombre" id="txtNombre"> </div>
+
+        <br>
+        <div class="form-group">
+            <label> Apellido: </label>
+
+            <input type="text" name="txtCorreo" id="txtCorreo"></div>
+        <br>
+        <div class="form-group"><label> Foto: </label>
+            <input type="file" name="txtFoto" id="txtFoto"></div>
+        <br>
+        <br>
+        <div class="form-group">
+            <input type="submit" value="Agregar" class="btn btn-success">
+            <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+
+        </div>
+
+    </form>
+</div>
